@@ -198,7 +198,7 @@ class GroundingDINOEncoderOutput(ModelOutput):
 @dataclass
 class GroundingDINOModelOutput(ModelOutput):
     """
-    Base class for outputs of the Grounding DINO encoder-decoder model.
+    Base class for outputs of the Deformable DETR encoder-decoder model.
 
     Args:
         init_reference_points (`torch.FloatTensor` of shape  `(batch_size, num_queries, 4)`):
@@ -2019,6 +2019,8 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
         backbone = GroundingDINOConvEncoder(config)
         position_embeddings = build_position_encoding(config)
         self.backbone = GroundingDINOConvModel(backbone, position_embeddings)
+        # Create Text Extractor
+        self.text_backbone = GroundingDINOTextModel(config.text_backbone_config)
 
         # Create input projection layers
         if config.num_feature_levels > 1:

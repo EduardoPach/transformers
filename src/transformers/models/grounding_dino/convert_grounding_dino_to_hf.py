@@ -274,7 +274,6 @@ def create_rename_keys(state_dict, config):
     # fmt: on
     return rename_keys
 
-
 def rename_key(dct, old, new):
     val = dct.pop(old)
     dct[new] = val
