@@ -2019,8 +2019,6 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
         backbone = GroundingDINOConvEncoder(config)
         position_embeddings = build_position_encoding(config)
         self.backbone = GroundingDINOConvModel(backbone, position_embeddings)
-        # Create Text Extractor
-        self.text_backbone = GroundingDINOTextModel(config.text_backbone_config)
 
         # Create input projection layers
         if config.num_feature_levels > 1:
