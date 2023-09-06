@@ -160,7 +160,6 @@ class GroundingDINODecoderOutput(ModelOutput):
     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
 
-
 @dataclass
 class GroundingDINOEncoderOutput(ModelOutput):
     """
@@ -1700,7 +1699,6 @@ class GroundingDINOEncoder(GroundingDINOPreTrainedModel):
             hidden_states_text=encoder_text_states,
             attentions=all_attns,
         )
-
 
 class GroundingDINODecoder(GroundingDINOPreTrainedModel):
     """
