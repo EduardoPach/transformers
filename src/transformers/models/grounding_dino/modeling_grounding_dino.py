@@ -2017,8 +2017,6 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
         backbone = GroundingDINOConvEncoder(config)
         position_embeddings = build_position_encoding(config)
         self.backbone = GroundingDINOConvModel(backbone, position_embeddings)
-        # Create text backbone
-        self.text_backbone = GroundingDINOTextModel(config.text_backbone_config)
 
         # Create input projection layers
         if config.num_feature_levels > 1:
@@ -2325,7 +2323,7 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
                 text_position_ids=position_ids,
                 output_attentions=output_attentions,
                 output_hidden_states=output_hidden_states,
-                return_dict=return_dict,
+                return_dict=return_dict
             )
         # If the user passed a tuple for encoder_outputs, we wrap it in a GroundingDINOEncoderOutput when return_dict=True
         elif return_dict and not isinstance(encoder_outputs, GroundingDINOEncoderOutput):
@@ -2390,7 +2388,7 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
             self_attn_mask=None,
             output_attentions=output_attentions,
             output_hidden_states=output_hidden_states,
-            return_dict=return_dict,
+            return_dict=return_dict
         )
 
         if not return_dict:
