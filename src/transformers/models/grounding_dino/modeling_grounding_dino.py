@@ -197,7 +197,7 @@ class GroundingDINOEncoderOutput(ModelOutput):
 @dataclass
 class GroundingDINOModelOutput(ModelOutput):
     """
-    Base class for outputs of the Deformable DETR encoder-decoder model.
+    Base class for outputs of the Grounding DINO encoder-decoder model.
 
     Args:
         init_reference_points (`torch.FloatTensor` of shape  `(batch_size, num_queries, 4)`):
