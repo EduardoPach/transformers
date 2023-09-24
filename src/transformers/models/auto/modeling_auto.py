@@ -640,6 +640,7 @@ MODEL_FOR_OBJECT_DETECTION_MAPPING_NAMES = OrderedDict(
         ("deformable_detr", "DeformableDetrForObjectDetection"),
         ("deta", "DetaForObjectDetection"),
         ("detr", "DetrForObjectDetection"),
+        ("grounding-dino", "GroundingDINOForObjectDetection"),
         ("table-transformer", "TableTransformerForObjectDetection"),
         ("yolos", "YolosForObjectDetection"),
     ]

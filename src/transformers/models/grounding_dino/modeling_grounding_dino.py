@@ -1418,8 +1418,6 @@ class GroundingDINOPreTrainedModel(PreTrainedModel):
     main_input_name = "pixel_values"
 
     def _init_weights(self, module):
-        std = self.config.init_std
-
         if isinstance(module, GroundingDINOLearnedPositionEmbedding):
             nn.init.uniform_(module.row_embeddings.weight)
             nn.init.uniform_(module.column_embeddings.weight)

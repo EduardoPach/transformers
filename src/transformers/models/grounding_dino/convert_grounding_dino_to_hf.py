@@ -328,6 +328,7 @@ def preprocess_caption(caption: str) -> str:
     return result + "."
 
 
+
 @torch.no_grad()
 def convert_grounding_dino_checkpoint(args):
     model_name = args.model_name
