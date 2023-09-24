@@ -160,6 +160,7 @@ class GroundingDINODecoderOutput(ModelOutput):
     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
 
+
 @dataclass
 class GroundingDINOEncoderOutput(ModelOutput):
     """
@@ -1700,6 +1701,7 @@ class GroundingDINOEncoder(GroundingDINOPreTrainedModel):
             attentions=all_attns,
         )
 
+
 class GroundingDINODecoder(GroundingDINOPreTrainedModel):
     """
     Transformer decoder consisting of *config.decoder_layers* layers. Each layer is a [`GroundingDINODecoderLayer`].
@@ -2323,7 +2325,7 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
                 text_position_ids=position_ids,
                 output_attentions=output_attentions,
                 output_hidden_states=output_hidden_states,
-                return_dict=return_dict
+                return_dict=return_dict,
             )
         # If the user passed a tuple for encoder_outputs, we wrap it in a GroundingDINOEncoderOutput when return_dict=True
         elif return_dict and not isinstance(encoder_outputs, GroundingDINOEncoderOutput):
@@ -2388,7 +2390,7 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
             self_attn_mask=None,
             output_attentions=output_attentions,
             output_hidden_states=output_hidden_states,
-            return_dict=return_dict
+            return_dict=return_dict,
         )
 
         if not return_dict:
