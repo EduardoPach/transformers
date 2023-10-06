@@ -409,7 +409,7 @@ if __name__ == "__main__":
     # Required parameters
     parser.add_argument(
         "--model_name",
-        default="grounding-dino-tiny",
+        default="grounding-dino-base",
         type=str,
         choices=["grounding-dino-tiny", "grounding-dino-base"],
         help="Name of the GroundingDINO model you'd like to convert.",
