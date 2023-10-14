@@ -67,7 +67,7 @@ IMAGE_PROCESSOR_MAPPING_NAMES = OrderedDict(
         ("fuyu", "FuyuImageProcessor"),
         ("git", "CLIPImageProcessor"),
         ("glpn", "GLPNImageProcessor"),
-        ("grounding-dino", "GroundingDINOImageProcessor"),
+        ("grounding-dino", "DeformableDetrImageProcessor"),
         ("groupvit", "CLIPImageProcessor"),
         ("idefics", "IdeficsImageProcessor"),
         ("imagegpt", "ImageGPTImageProcessor"),
