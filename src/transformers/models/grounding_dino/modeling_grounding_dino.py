@@ -1459,6 +1459,9 @@ class GroundingDINOPreTrainedModel(PreTrainedModel):
             nn.init.constant_(module.reference_points.bias.data, 0.0)
         if hasattr(module, "level_embed"):
             nn.init.normal_(module.level_embed)
+        if isinstance(module, GroundingDINOMLPPredictionHead):
+            nn.init.constant_(module.layers[-1].weight.data, 0)
+            nn.init.constant_(module.layers[-1].bias.data, 0)
 
     def _set_gradient_checkpointing(self, module, value=False):
         if isinstance(module, GroundingDINODecoder):
