@@ -24,6 +24,7 @@ _import_structure = {
         "GroundingDINOTextPrenetConfig",
     ],
     "processing_grounding_dino": ["GroundingDINOProcessor"],
+    "image_processing_grounding_dino": ["GroundingDINOImageProcessor"]
 }
 
 try:
@@ -55,6 +56,7 @@ if TYPE_CHECKING:
         GroundingDINOTextPrenetConfig,
     )
     from .processing_grounding_dino import GroundingDINOProcessor
+    from .image_processing_grounding_dino import GroundingDINOImageProcessor
 
     try:
         if not is_torch_available():
