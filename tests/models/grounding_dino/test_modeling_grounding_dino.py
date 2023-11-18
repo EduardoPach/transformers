@@ -61,10 +61,9 @@ class GroundingDINOModelTester:
     def __init__(
         self,
         parent,
-        image_size=196,
         batch_size=8,
-        is_training=False,
-        use_labels=False,
+        is_training=True,
+        use_labels=True,
         hidden_size=32,
         num_hidden_layers=2,
         num_attention_heads=4,
@@ -76,6 +75,7 @@ class GroundingDINOModelTester:
         num_channels=3,
         image_size=64,
         n_targets=8,
+        num_labels=91,
         num_feature_levels=4,
         encoder_n_points=2,
         decoder_n_points=6,
@@ -85,16 +85,18 @@ class GroundingDINOModelTester:
         self.batch_size = batch_size
         self.is_training = is_training
         self.use_labels = use_labels
-        self.image_size = image_size
         self.hidden_size = hidden_size
         self.num_hidden_layers = num_hidden_layers
         self.num_attention_heads = num_attention_heads
+        self.intermediate_size = intermediate_size
         self.hidden_act = hidden_act
         self.hidden_dropout_prob = hidden_dropout_prob
         self.attention_probs_dropout_prob = attention_probs_dropout_prob
         self.num_queries = num_queries
         self.num_channels = num_channels
+        self.image_size = image_size
         self.n_targets = n_targets
+        self.num_labels = num_labels
         self.num_feature_levels = num_feature_levels
         self.encoder_n_points = encoder_n_points
         self.decoder_n_points = decoder_n_points
