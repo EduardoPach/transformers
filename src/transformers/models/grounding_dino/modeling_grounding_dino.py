@@ -1052,6 +1052,7 @@ class GroundingDINOFusionLayer(nn.Module):
         return (vision_features, vision_attn), (text_features, text_attn)
 
 
+# NOTE just renamed the class
 class GroundingDINODeformableLayer(nn.Module):
     def __init__(self, config: GroundingDINOConfig):
         super().__init__()
@@ -1403,6 +1404,8 @@ class GroundingDINOPreTrainedModel(PreTrainedModel):
     main_input_name = "pixel_values"
 
     def _init_weights(self, module):
+        std = self.config.init_std
+
         if isinstance(module, GroundingDINOLearnedPositionEmbedding):
             nn.init.uniform_(module.row_embeddings.weight)
             nn.init.uniform_(module.column_embeddings.weight)
@@ -1444,9 +1447,6 @@ class GroundingDINOPreTrainedModel(PreTrainedModel):
             nn.init.constant_(module.reference_points.bias.data, 0.0)
         if hasattr(module, "level_embed"):
             nn.init.normal_(module.level_embed)
-        if isinstance(module, GroundingDINOMLPPredictionHead):
-            nn.init.constant_(module.layers[-1].weight.data, 0)
-            nn.init.constant_(module.layers[-1].bias.data, 0)
 
     def _set_gradient_checkpointing(self, module, value=False):
         if isinstance(module, GroundingDINODecoder):
@@ -2050,8 +2050,6 @@ class GroundingDINOModel(GroundingDINOPreTrainedModel):
         self.decoder = GroundingDINODecoder(config)
 
         self.level_embed = nn.Parameter(torch.Tensor(config.num_feature_levels, config.d_model))
-
-        print("Two stage:", config.two_stage)
 
         if config.two_stage:
             self.enc_output = nn.Linear(config.d_model, config.d_model)

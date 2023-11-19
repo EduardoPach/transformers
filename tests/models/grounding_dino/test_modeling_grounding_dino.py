@@ -219,9 +219,6 @@ class GroundingDINOModelTest(ModelTesterMixin, GenerationTesterMixin, PipelineTe
     def _prepare_for_class(self, inputs_dict, model_class, return_labels=False):
         inputs_dict = super()._prepare_for_class(inputs_dict, model_class, return_labels=return_labels)
 
-        for k, v in inputs_dict.items():
-            print(k, v.shape)
-
         if return_labels:
             if model_class.__name__ == "GroundingDINOForObjectDetection":
                 labels = []
